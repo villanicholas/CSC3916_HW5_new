@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# MovieHub React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React Single Page Application that interacts with the movie API. The application enables users to search for movies, display information about a selected movie, view stored ratings, and submit a new rating for a movie.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User authentication (signup and login)
+- Display top-rated movies on the main screen
+- Search for movies by title or actor name
+- View detailed movie information including cast, ratings, and reviews
+- Submit reviews for movies
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js and npm installed
+- Movie API running on the backend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   cd <repository-folder>/client
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-### `npm run build`
+3. Create a `.env` file in the client directory and add your API URL:
+   ```
+   REACT_APP_API_URL=http://your-api-url.com
+   ```
+   Note: By default, the application will proxy requests to `http://localhost:8080`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Development
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm start
+```
 
-### `npm run eject`
+This will run the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Building for Production
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To build the application for production:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This will create a `build` directory with the optimized, production-ready files.
 
-## Learn More
+## Deployment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Deploying to Netlify
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Create a Netlify account if you don't have one
+2. Install Netlify CLI:
+   ```
+   npm install -g netlify-cli
+   ```
+3. Login to Netlify:
+   ```
+   netlify login
+   ```
+4. Deploy to Netlify:
+   ```
+   netlify deploy
+   ```
 
-### Code Splitting
+### Deploying to Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Install Vercel CLI:
+   ```
+   npm install -g vercel
+   ```
+2. Deploy to Vercel:
+   ```
+   vercel
+   ```
 
-### Analyzing the Bundle Size
+### Deploying to Heroku
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Install Heroku CLI
+2. Login to Heroku:
+   ```
+   heroku login
+   ```
+3. Create a new Heroku app:
+   ```
+   heroku create your-app-name
+   ```
+4. Deploy to Heroku:
+   ```
+   git add .
+   git commit -m "Deploy to Heroku"
+   git push heroku main
+   ```
 
-### Making a Progressive Web App
+## Important Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Make sure your backend API is accessible from your deployed frontend application
+- Update the CORS settings on your backend to allow requests from your frontend domain
+- Set the appropriate environment variables on your deployment platform
 
-### Advanced Configuration
+## API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The application communicates with the backend API using the following endpoints:
 
-### Deployment
+- `/signup` - Register a new user
+- `/signin` - Authenticate a user and get a JWT token
+- `/movies` - Get all movies (sorted by rating with `?reviews=true`)
+- `/movies/:id` - Get a specific movie with its details
+- `/movies/search` - Search for movies by title or actor name
+- `/reviews` - Submit a movie review
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT License](LICENSE)

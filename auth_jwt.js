@@ -1,3 +1,4 @@
+require('dotenv').config();
 var passport = require('passport');
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -18,4 +19,4 @@ passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
 }));
 
 exports.isAuthenticated = passport.authenticate('jwt', { session : false });
-exports.secret = opts.secretOrKey ;
+exports.secret = opts.secretOrKey;
